@@ -12,14 +12,15 @@ ENV JAVA_APP_DIR=/deployments \
 # /dev/urandom is used as random source, which is perfectly safe
 # according to http://www.2uo.de/myths-about-urandom/
 RUN apk add --update \
-    openjdk8-jre-base \
+    openjdk8 \
  && rm /var/cache/apk/* \
  && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
 
 
 # Add run script as /deployments/run-java.sh and make it executable
-COPY ./run-java/run-java.sh /deployments/
+COPY ./run-java.sh /deployments/
 RUN chmod 755 /deployments/run-java.sh
 
 
 CMD [ "/deployments/run-java.sh" ]
+

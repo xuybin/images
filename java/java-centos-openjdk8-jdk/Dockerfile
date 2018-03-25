@@ -20,7 +20,7 @@ ENV JAVA_HOME /etc/alternatives/jre
 
 
 # Add run script as /deployments/run-java.sh and make it executable
-COPY ./run-java/run-java.sh /deployments/
+COPY ./run-java.sh /deployments/
 RUN chmod 755 /deployments/run-java.sh
 
 
